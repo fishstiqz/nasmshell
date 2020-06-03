@@ -54,8 +54,8 @@ def disassemble_file(binfile, bits):
     proc = subprocess.Popen(["ndisasm", "-b%u"%(bits), binfile],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     buf_out, buf_err = proc.communicate()
-    buf_out = buf_out.decode();
-    buf_err = buf_err.decode();
+    buf_out = buf_out.decode()
+    buf_err = buf_err.decode()
     if proc.returncode != 0:
         raise NasmException(proc.returncode, buf_err)
     else:
